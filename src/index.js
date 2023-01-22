@@ -2,4 +2,4 @@
 import "./style.scss";
 
 // SCRIPTS
-import './scripts/index.js';
+import "./scripts/index.js";

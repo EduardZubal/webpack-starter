@@ -3,6 +3,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+const Pages = require("./pages.config");
+
 module.exports = {
   entry: {
     app: Path.resolve(__dirname, '../src/index.js'),
@@ -10,7 +12,7 @@ module.exports = {
   output: {
     path: Path.join(__dirname, '../dist'),
     filename: 'js/[name].js',
-     clean: true
+    clean: true
   },
   optimization: {
     splitChunks: {
@@ -20,9 +22,13 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: Path.resolve(__dirname, '../src/index.html'),
-    }),
+    ...Pages.map( (page) =>
+        new HtmlWebpackPlugin({
+          inject: true,
+          template: page.pathTemplate,
+          filename: `${page.filename}.html`,
+        })
+    )
   ],
   resolve: {
     alias: {
@@ -46,6 +52,10 @@ module.exports = {
                     plugins: ['@babel/plugin-transform-runtime'],
                 }
             }
+        },
+        {
+          test: /\.html$/i,
+          loader: "html-loader",
         },
         {
             test: /\.s[ac]ss$/i,
