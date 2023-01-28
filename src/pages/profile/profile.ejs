@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <% for (var css in htmlWebpackPlugin.files.css) { %>
+    <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[css] %>">
+  <% } %>
+  <meta name="description" content="A light foundation for your next frontend project based on webpack.">
+</head>
+<body>
+    <main>
+        <h2 class="profile">Profile page 555555555555</h2>
+    </main>
+
+  <% for (var js in htmlWebpackPlugin.files.js) { %>
+  <script src="<%= htmlWebpackPlugin.files.js[js] %>"></script>
+  <% } %>
+</body>
+</html>

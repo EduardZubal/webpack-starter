@@ -2,7 +2,6 @@ const Path = require('path');
 const Webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const StylelintPlugin = require('stylelint-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const common = require('./webpack.common.js');
@@ -19,20 +18,20 @@ module.exports = merge(common, {
     hotUpdateChunkFilename: 'hot/main.hot-update.js',
     hotUpdateMainFilename: 'hot/main.hot-update.json',
   },
-devServer: {
-    static: {
-        directory: Path.resolve(__dirname, '../src'),
-    },
-    hot: true,
-    client: {
-        overlay: true,
-    },
-    compress: true,
-    port: PORT,
-    devMiddleware: {
+  devServer: {
+      static: {
+          directory: Path.resolve(__dirname, '../src'),
+      },
+      hot: true,
+      client: {
+          overlay: true,
+      },
+      compress: true,
+      port: PORT,
+      devMiddleware: {
         writeToDisk: true,
-    }
-},
+      }
+  },
   plugins: [
     new Webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
@@ -44,6 +43,7 @@ devServer: {
     }),
     new MiniCssExtractPlugin({
         filename: 'css/[name].css',
+        chunkFilename: '[name].css',
     }),
   ],
   module: {

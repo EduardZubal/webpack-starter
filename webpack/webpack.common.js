@@ -17,15 +17,24 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
-      name: false,
+      minSize: 0,
+      cacheGroups: {
+        common_vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'common_vendors',
+          chunks: 'initial',
+          enforce: true,
+        },
+      },
     },
   },
   plugins: [
     new CleanWebpackPlugin(),
     ...Pages.map( (page) =>
         new HtmlWebpackPlugin({
-          inject: true,
-          template: page.pathTemplate,
+          inject: false,
+          title: page.title,
+          template: page.template,
           filename: `${page.filename}.html`,
         })
     )
@@ -54,7 +63,7 @@ module.exports = {
             }
         },
         {
-          test: /\.html$/i,
+          test: /\.(html)$/i,
           loader: "html-loader",
         },
         {

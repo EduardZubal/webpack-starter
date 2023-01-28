@@ -2,17 +2,19 @@ const Path = require('path');
 
 const pages = [
   {
+    title: 'Index',
     entryName: 'app',
-    pathTemplate: Path.resolve(__dirname, '../src/index.html'),
+    template: Path.resolve(__dirname, '../src/index.ejs'),
     filename: 'index',
-    chunk: 'index'
+    chunk: ['index'],
   },
   {
+    title: 'Profile',
     entryName: 'profile',
-    pathTemplate: Path.resolve(__dirname, '../src/pages/profile/profile.html'),
+    template: Path.resolve(__dirname, '../src/pages/profile/profile.ejs'),
     filename: 'pages/profile/profile',
-    chunk: 'profile'
+    chunk: ['profile'],
   }
 ];
 
-module.exports = pages
+module.exports = pages;
