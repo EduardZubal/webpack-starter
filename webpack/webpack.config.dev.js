@@ -26,6 +26,7 @@ module.exports = merge(common, {
       client: {
           overlay: true,
       },
+      open: true,
       compress: true,
       port: PORT,
       devMiddleware: {
