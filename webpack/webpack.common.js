@@ -6,9 +6,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Pages = require("./pages.config");
 
 module.exports = {
-  entry: {
-    app: Path.resolve(__dirname, '../src/index.js'),
-  },
+  entry: Pages.reduce((config, page) => {
+    config[page.entryName] = Path.resolve(__dirname, `../src/${page.entryPath}`);
+    return config;
+  }, {}),
   output: {
     path: Path.join(__dirname, '../dist'),
     filename: 'assets/js/[name].js',
@@ -25,16 +26,6 @@ module.exports = {
           chunks: 'initial',
           enforce: true,
         },
-        // fooStyles: {
-        //   type: "css/mini-extract",
-        //   name: "styles_foo",
-        //   // chunks: "all",
-        //   chunks: (chunk) => {
-        //     console.log(chunk);
-        //     return chunk.name === "app";
-        //   },
-        //   enforce: true,
-        // },
       },
     },
   },

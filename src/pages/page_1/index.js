@@ -1,0 +1,1 @@
+import "../../assets/styles/page_1/page_1.scss";
