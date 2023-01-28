@@ -19,19 +19,19 @@ module.exports = merge(common, {
     hotUpdateMainFilename: 'hot/main.hot-update.json',
   },
   devServer: {
-      static: {
-          directory: Path.resolve(__dirname, '../src'),
-      },
-      hot: true,
-      client: {
-          overlay: true,
-      },
-      open: true,
-      compress: true,
-      port: PORT,
-      devMiddleware: {
-        writeToDisk: true,
-      }
+    static: {
+        directory: Path.resolve(__dirname, '../src'),
+    },
+    hot: true,
+    client: {
+        overlay: true,
+    },
+    // open: true,
+    compress: true,
+    port: PORT,
+    devMiddleware: {
+      writeToDisk: true,
+    }
   },
   plugins: [
     new Webpack.DefinePlugin({
@@ -45,6 +45,9 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({
         filename: 'css/[name].css',
         chunkFilename: '[name].css',
+        // chunkFilename: (pathData) => {
+        //   return `css/${pathData.chunk.id}.[contenthash].css`;
+        // },
     }),
   ],
   module: {

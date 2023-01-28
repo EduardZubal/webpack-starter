@@ -1,6 +1,17 @@
 @import "~/styles/common/_variables.scss";
 @import "~/styles/common/common.scss";
-// @import "~/styles/profile/profile.scss";
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('./fonts/OpenSans-Regular.ttf') format('ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+html,
+body {
+  font-family: 'OpenSans', sans-serif;
+}
 
 main {
   width: 100%;

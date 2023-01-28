@@ -47,37 +47,47 @@ module.exports = {
   module: {
     rules: [
         {
-            test: /\.mjs$/,
-            include: /node_modules/,
-            type: 'javascript/auto',
+          test: /\.mjs$/,
+          include: /node_modules/,
+          type: 'javascript/auto',
         },
         {
-            test: /\.m?js$/,
-            exclude: /(node_modules|bower_components)/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env'],
-                    plugins: ['@babel/plugin-transform-runtime'],
-                }
-            }
+          test: /\.m?js$/,
+          exclude: /(node_modules|bower_components)/,
+          use: {
+              loader: 'babel-loader',
+              options: {
+                  presets: ['@babel/preset-env'],
+                  plugins: ['@babel/plugin-transform-runtime'],
+              }
+          }
         },
         {
           test: /\.(html)$/i,
           loader: "html-loader",
         },
         {
-            test: /\.s[ac]ss$/i,
-            use: [
-                MiniCssExtractPlugin.loader,
-                "css-loader",
-                'postcss-loader',
-                "sass-loader",
-            ],
+          test: /\.s[ac]ss$/i,
+          use: [
+              MiniCssExtractPlugin.loader,
+              "css-loader",
+              'postcss-loader',
+              "sass-loader",
+          ],
         },
         {
-            test: /\.(png|svg|jpg|jpeg|gif)$/i,
-            type: 'asset/resource',
+          test: /\.(woff|woff2|eot|ttf|otf)$/i,
+          type: 'asset/resource',
+          generator: {
+            filename: 'fonts/[name][ext][query]'
+          }
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource',
+          generator: {
+            filename: 'images/[name][ext][query]'
+          }
         },
     ],
   },

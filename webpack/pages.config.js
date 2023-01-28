@@ -9,11 +9,11 @@ const pages = [
     chunk: ['index'],
   },
   {
-    title: 'Profile',
-    entryName: 'profile',
-    template: Path.resolve(__dirname, '../src/pages/profile/profile.ejs'),
-    filename: 'pages/profile/profile',
-    chunk: ['profile'],
+    title: 'page_1',
+    entryName: 'page_1',
+    template: Path.resolve(__dirname, '../src/pages/page_1/page_1.ejs'),
+    filename: 'pages/page_1/page_1',
+    chunk: ['page_1'],
   }
 ];
 
