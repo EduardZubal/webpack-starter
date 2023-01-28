@@ -1,9 +1,9 @@
-@import "~/styles/common/_variables.scss";
-@import "~/styles/common/common.scss";
+@import "~/assets/styles/common/_variables.scss";
+@import "~/assets/styles/common/common.scss";
 
 @font-face {
   font-family: 'OpenSans';
-  src: url('./fonts/OpenSans-Regular.ttf') format('ttf');
+  src: url('./assets/fonts/OpenSans-Regular.ttf') format('ttf');
   font-weight: 600;
   font-style: normal;
 }

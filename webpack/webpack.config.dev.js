@@ -13,7 +13,7 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'eval-cheap-source-map',
   output: {
-    chunkFilename: 'js/[name].chunk.js',
+    chunkFilename: 'assets/js/[name].chunk.js',
     publicPath: `http://localhost:${PORT}/`,
     hotUpdateChunkFilename: 'hot/main.hot-update.js',
     hotUpdateMainFilename: 'hot/main.hot-update.json',
@@ -43,8 +43,8 @@ module.exports = merge(common, {
       files: Path.resolve(__dirname, '../src'),
     }),
     new MiniCssExtractPlugin({
-        filename: 'css/[name].css',
-        chunkFilename: '[name].css',
+        filename: 'assets/css/[name].css',
+        // chunkFilename: '[name].css',
         // chunkFilename: (pathData) => {
         //   return `css/${pathData.chunk.id}.[contenthash].css`;
         // },

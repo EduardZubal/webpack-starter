@@ -1,6 +1,6 @@
 // STYLES
 import "./style.scss";
-import "./styles/page_1/page_1.scss";
+import "./assets/styles/page_1/page_1.scss";
 
 // SCRIPTS
-import "./scripts/index.js";
+import "./assets/scripts/index.js";

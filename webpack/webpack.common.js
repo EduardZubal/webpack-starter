@@ -11,7 +11,7 @@ module.exports = {
   },
   output: {
     path: Path.join(__dirname, '../dist'),
-    filename: 'js/[name].js',
+    filename: 'assets/js/[name].js',
     clean: true
   },
   optimization: {
@@ -25,6 +25,16 @@ module.exports = {
           chunks: 'initial',
           enforce: true,
         },
+        // fooStyles: {
+        //   type: "css/mini-extract",
+        //   name: "styles_foo",
+        //   // chunks: "all",
+        //   chunks: (chunk) => {
+        //     console.log(chunk);
+        //     return chunk.name === "app";
+        //   },
+        //   enforce: true,
+        // },
       },
     },
   },
@@ -79,14 +89,14 @@ module.exports = {
           test: /\.(woff|woff2|eot|ttf|otf)$/i,
           type: 'asset/resource',
           generator: {
-            filename: 'fonts/[name][ext][query]'
+            filename: 'assets/fonts/[name][ext][query]'
           }
         },
         {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
           type: 'asset/resource',
           generator: {
-            filename: 'images/[name][ext][query]'
+            filename: 'assets/images/[name][ext][query]'
           }
         },
     ],
